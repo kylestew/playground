@@ -1,21 +1,33 @@
 CodeEditor = React.createClass({
-  render() {
-    return <div id="CodeEditor"></div>;
-  }
+  propTypes: {
+    sketch: React.PropTypes.object.isRequired
+  },
 
-    // const taskClassName = this.props.task.checked ? "checked" : "";
-    //
-    // return <li className={taskClassName}>
-    //   <button className="delete" onClick={this.deleteThisTask}>&times;</button>
-    //
-    //   <input
-    //     type="checkbox"
-    //     readOnly={true}
-    //     checked={this.props.task.checked}
-    //     onClick={this.toggleChecked}/>
-    //
-    //   <span className="text">
-    //     <strong>{ this.props.task.username }</strong>: {this.props.task.text}
-    //   </span>
-    // </li>;
+  componentDidMount() {
+    var that = this;
+    var ace = AceEditor.instance("CodeEditor", {
+      theme: 'monokai',
+      mode: 'javascript'
+    }, function(editor) {
+
+      // bind initial value
+      editor.setValue(that.props.sketch.code);
+
+      // bind keys
+      editor.commands.addCommand({
+        name: 'run',
+        bindKey: { win: 'Ctrl-R', mac: 'Command-R' },
+        exec: function(editor) {
+
+          console.log("run!");
+          
+        }
+      });
+
+    });
+  },
+
+  render() {
+    return <pre id="CodeEditor"></pre>;
+  }
 });
