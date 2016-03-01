@@ -4,16 +4,20 @@ SketchDisplay = React.createClass({
   },
 
   componentWillReceiveProps(nextProps) {
-
-    console.log("next: " + nextProps);
-
-    debugger;
-
+    var code = nextProps.sketch.code;
+    // stop/remove running
+    if (this.state.runningP5Instance != null) {
+      this.state.runningP5Instance.remove();
+    }
+    this.executeSketchCode(code);
   },
 
   componentDidMount() {
     var script = this.props.sketch.code;
+    this.executeSketchCode(script);
+  },
 
+  executeSketchCode(script) {
     var envWrapped = function(_p5) {
       with (_p5) {
         eval(script);
@@ -43,7 +47,10 @@ SketchDisplay = React.createClass({
         }
       }
     }
-    new p5(envWrapped, 'SketchDisplay');
+    var instance = new p5(envWrapped, 'SketchDisplay');
+    this.setState({
+      runningP5Instance: instance
+    });
   },
 
   render() {

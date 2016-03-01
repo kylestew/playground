@@ -16,11 +16,11 @@ CodeEditor = React.createClass({
       // bind keys
       editor.commands.addCommand({
         name: 'run',
-        bindKey: { win: 'Ctrl-R', mac: 'Command-R' },
+        bindKey: { win: 'Ctrl-S', mac: 'Command-S' },
         exec: function(editor) {
-
-          console.log("run!");
-          
+          Sketches.update({_id:that.props.sketch._id},{$set:{
+            code: editor.getValue()
+          }});
         }
       });
 
