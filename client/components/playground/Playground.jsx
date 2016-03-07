@@ -3,7 +3,7 @@ Playground = React.createClass({
 
   getMeteorData() {
     return {
-      sketch: Sketches.findOne('qF8fYYhBYEwgnLwwH')
+      sketch: Sketches.findOne(this.props.sketchId)
     }
   },
 

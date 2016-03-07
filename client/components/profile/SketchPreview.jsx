@@ -44,7 +44,7 @@ SketchPreview = React.createClass({
   render() {
     return (
       <div className="col-sm-6 col-md-4">
-        <a href="#">
+        <a href={ "/play/" + this.props.sketch._id }>
           <div className="thumbnail">
             <div id={ "preview_" + this.props.sketch._id} className="preview"></div>
             <div className="caption">
