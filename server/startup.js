@@ -2,7 +2,7 @@
 // TEMP: SEED
 if (Sketches.find().count() == 0) {
   Sketches.insert({
-    title: faker.lorem.words(2),
+    title: faker.lorem.words(2).join(' '),
     code: `
       function setup() {
         createCanvas(400, 400);
@@ -16,7 +16,7 @@ if (Sketches.find().count() == 0) {
     `
   });
   Sketches.insert({
-    title: faker.lorem.words(2),
+    title: faker.lorem.words(2).join(' '),
     code: `
     var diameter;
     var angle = 0;

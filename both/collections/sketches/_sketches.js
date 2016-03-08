@@ -25,6 +25,7 @@ Sketches.attachSchema(new SimpleSchema({
     optional: true
   },
 
+  title: { type: String },
   code: { type: String },
 
 }));

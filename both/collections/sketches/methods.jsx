@@ -1,6 +1,7 @@
 
 Sketches.Methods = {};
 Sketches.Methods.createSketch = "sketches_createSketch";
+Sketches.Methods.deleteSketch = "sketches_deleteSketch";
 
 if (Meteor.isServer) {
   Meteor.methods({
@@ -24,8 +25,15 @@ function draw() {
 
       // TODO: default code
       return Sketches.insert({
+        title: "Untitled Sketch",
         code: code
       });
+    },
+
+    sketches_deleteSketch(sketchId) {
+      check(sketchId, String);
+
+      Sketches.remove({_id:sketchId});
     },
 
   });
