@@ -7,6 +7,13 @@ Playground = React.createClass({
     }
   },
 
+  saveRunSketch() {
+    var code = this.refs.editor.state.editor.getValue();
+    Sketches.update({_id:this.data.sketch._id},{$set:{
+      code: code
+    }});
+  },
+
   deleteSketch() {
     if (window.confirm("Delete this sketch?")) {
       Meteor.call(Sketches.Methods.deleteSketch, this.data.sketch._id, (error, response) => {
@@ -36,12 +43,16 @@ Playground = React.createClass({
 
           { this.data.sketch.title }
 
-          <button type="button" className="btn btn-danger pull-right" onClick={ this.deleteSketch }>Delete</button>
+          <span className="pull-right">
+            <button type="button" className="btn btn-success" onClick={ this.saveRunSketch }>Save/Run [cmd+s]</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="button" className="btn btn-danger" onClick={ this.deleteSketch }>Delete</button>
+          </span>
 
         </div>
         <div id="workspace">
           <SketchDisplay sketch={ this.data.sketch } />
-          <CodeEditor sketch={ this.data.sketch } />
+          <CodeEditor ref="editor" sketch={ this.data.sketch } saveRunSketch={ this.saveRunSketch } />
         </div>
       </div>
     );
