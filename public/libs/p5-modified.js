@@ -5252,7 +5252,7 @@ exports.sizeOf = sizeOf;
 
     function timedOut() {
       self._timedOut = true
-      self.request.abort()      
+      self.request.abort()
     }
 
     function error(resp, msg, t) {
@@ -11877,6 +11877,9 @@ var p5 = function(sketch, node, sync) {
           e.elt.removeEventListener(elt_ev, e._events[elt_ev]);
         }
       }
+      console.log(this._elements);
+      this._elements = [];
+      console.log(this._elements);
 
       // call any registered remove functions
       var self = this;

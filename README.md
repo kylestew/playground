@@ -3,7 +3,6 @@
 ### TODO:
 
 + Solid editor experience
-+ Solve scale issues
 
 + User login/create account
 + User profile listing with username link

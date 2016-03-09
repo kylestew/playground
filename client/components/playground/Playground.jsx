@@ -9,13 +9,15 @@ Playground = React.createClass({
 
   saveRunSketch() {
     var code = this.refs.editor.state.editor.getValue();
-    Sketches.update({_id:this.data.sketch._id},{$set:{
-      code: code
-    }}, function(err, success) {
-      if (success) {
-        Bert.alert('Sketch saved', 'success');
-      }
-    });
+    if (code != this.data.sketch.code) {
+      Sketches.update({_id:this.data.sketch._id},{$set:{
+        code: code
+      }}, function(err, success) {
+        if (success) {
+          Bert.alert('Sketch saved', 'success');
+        }
+      });
+    }
   },
 
   deleteSketch() {
