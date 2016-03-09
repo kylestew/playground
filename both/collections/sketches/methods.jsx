@@ -13,6 +13,7 @@ if (Meteor.isServer) {
 
       var code = `
 function setup() {
+  debugger;
   createCanvas(400, 400);
 }
 

@@ -11,7 +11,11 @@ Playground = React.createClass({
     var code = this.refs.editor.state.editor.getValue();
     Sketches.update({_id:this.data.sketch._id},{$set:{
       code: code
-    }});
+    }}, function(err, success) {
+      if (success) {
+        Bert.alert('Sketch saved', 'success');
+      }
+    });
   },
 
   deleteSketch() {
@@ -56,5 +60,6 @@ Playground = React.createClass({
         </div>
       </div>
     );
+
   }
 });

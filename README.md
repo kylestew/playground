@@ -24,3 +24,6 @@
 + Autosave after input timeout (user hasn't typed for a bit)
 + Autosave on editor defocus
 + Restart on auto save
+
++ Console
++ Hack P5 IDE into app
