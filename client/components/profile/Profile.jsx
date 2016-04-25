@@ -21,7 +21,7 @@ Profile = React.createClass({
   renderCells() {
     return this.data.sketches.map((sketch) => {
       return (
-        <SketchPreview sketch={ sketch } />
+        <SketchPreview key={ sketch._id } sketch={ sketch } />
       );
     });
   },

@@ -2,13 +2,14 @@
 
 ### TODO:
 
++ Editor nav bar options
++ Preview share static HTML
+
 + Solid editor experience
 
 + User login/create account
 + User profile listing with username link
 + Embed DIV preview in user listing
-
-+ Editor share mode
 
 + Home view - display select Sketches
 
@@ -17,6 +18,9 @@
 + Clean up UI
 
 == SHIP ALPHA ======
+
++ Faster code reload time
++ Scale previews better? or simply screen cap them.
 
 + Embed div for external sites (can do this without engaging meteor?)
 + Going to need to dynamically load p5 libs (and others specified by user)
